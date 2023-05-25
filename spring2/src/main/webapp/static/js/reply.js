@@ -30,9 +30,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     };
     
+    // 댓글 수정 모달 객체 생성
+    const modal = new bootstrap.Modal('div#replyUpdateModal', {backdrop: false});
+    // TODO: 모달 엘리먼트
+    const modalInput = document.querySelector('input#modalReplyId');
+    const modalTextarea = document.querySelector('textarea#modalReplyText');
+    const modalBtnUpdate = document.querySelector('button#modalBtnUpdate');
+    
     // 댓글 수정 버튼의 이벤트 리스너 (콜백) 함수
     const showUpdateModal = (e) => {
-        console.log(e.target);
+        // console.log(e.target);
+        const id = e.target.getAttribute('data-id');
+        modalTextarea.value = id;
+        
+        modal.show();
     };
     
     // 댓글 목록 HTML을 작성하고 replies에 추가하는 함수
