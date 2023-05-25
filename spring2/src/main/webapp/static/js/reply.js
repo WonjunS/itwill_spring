@@ -41,10 +41,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const showUpdateModal = (e) => {
         // console.log(e.target);
         const id = e.target.getAttribute('data-id');
-        modalTextarea.value = id;
-        
-        modal.show();
+        const reqUrl = `/spring2/api/reply/${id}`;
+        axios.get(reqUrl) // 서버로 GET 방식의 Ajax 요청을 보냄
+            .then((response) => {
+                // response에 포함된 data 객체에서 id, replyText 값을 찾음
+                const { id, replyText } = response.data;
+                
+                // id와 replyText를 모달의 input과 textarea에 씀
+                modalInput.value = id;
+                modalTextarea.value = replyText;
+                
+                // 모달을 보여줌
+                modal.show();
+                
+            }) // 성공 응답이 왔을 때 실행할 콜백 등록
+            .catch((error) => {
+                console.log(error);
+            }) // 실패 응답이 왔을 때 실행할 콜백 등록
     };
+    
+    const updateReply = (e) => {
+        // 수정할 댓글 아이디
+        const id = modalInput.value;
+        // 수정할 댓글 내용
+        const replyText = modalTextarea.value;
+        // PUT 방식의 Ajax 요청을 보냄
+        const reqUrl = `/spring2/api/reply/${id}`;
+        const data = { replyText };
+        // Ajax 요청에 대한 성공/실패 콜백 등록
+        axios.put(reqUrl, data)
+            .then((response) => {
+                alert(`댓글 업데이트 성공(${response.data})`);
+                getRepliesWithPostId();
+            })
+            .catch((error) => console.log(error))
+            .finally(() => modal.hide());
+    };
+    
+    // 모달에서 [수정 내용 저장] 버튼 이벤트 리스너 등록
+    modalBtnUpdate.addEventListener('click', updateReply);
     
     // 댓글 목록 HTML을 작성하고 replies에 추가하는 함수
     // argument data: Ajax 요청의 응답으로 전달받은 데이터

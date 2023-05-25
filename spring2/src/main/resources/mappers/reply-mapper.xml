@@ -9,6 +9,10 @@
         order by MODIFIED_TIME desc
     </select>
     
+    <select id="selectById" resultType="com.itwill.spring2.domain.Reply">
+        select * from REPLIES where ID = #{id}
+    </select>
+    
     <select id="selectReplyCountWithPostId" resultType="java.lang.Long">
         select count(*) from REPLIES 
         where POST_ID = #{post_id}

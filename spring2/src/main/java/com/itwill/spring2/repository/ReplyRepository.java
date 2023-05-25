@@ -8,6 +8,8 @@ public interface ReplyRepository {
     
     List<Reply> selectByPostId(long post_id);
     
+    Reply selectById(long id);
+    
     long selectReplyCountWithPostId(long post_id);
     
     int insert(Reply reply);
