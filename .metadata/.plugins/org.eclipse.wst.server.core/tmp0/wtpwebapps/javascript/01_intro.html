@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript 1</title>
+    <style>
+        div {
+            border: 2px solid gray;
+            margin: 8px;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+	<h1>자바스크립트 소개</h1>
+    
+    <h2>HTML element의 컨텐트 변경</h2>
+    <div id="box1" onclick="changeContent()">
+        여기는 box1 입니다...
+    </div>
+    
+    <h2>HTML element의 여러가지 속성(attribute) 변경</h2>
+    <div id="box2" onclick="changeStyle()">
+        여기는 box2 입니다...
+    </div>
+    
+    <script>
+    let toggle1 = true;
+    
+    function changeContent() {
+    	const box1 = document.getElementById('box1');
+    	if(toggle1 === true) {
+    		box1.innerHTML = '안녕하세요, <strong>JavaScript</strong>!';
+    		toggle1 = false;
+    		return;
+    	} else {
+    		box1.innerHTML = '여기는 box1 입니다...';
+    		toggle1 = true;
+    	}
+    }
+    
+    let toggle2 = true;
+    
+    function changeStyle() {
+    	const box2 = document.getElementById('box2');
+    	if(toggle2 === true) {
+    	   box2.style.backgroundColor = 'crimson';
+    	   box2.style.color = 'white';
+    	   box2.style.fontSize = '200%';
+    	   toggle2 = false;
+    	   return;
+    	} else {
+    		box2.style.backgroundColor = 'white';
+            box2.style.color = 'black';
+            box2.style.fontSize = '100%';
+    		toggle2 = true;
+    	}
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+@charset "UTF-8"; /* CSS 파일의 인코딩 설정 */
+
+body {
+    background-color: aqua;
+}
+
+div {
+    border: 2px solid white;
+    margin: 16px;
+    padding: 16px;
+}

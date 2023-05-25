@@ -1,0 +1,14 @@
+package com.itwill.spring2.stream;
+
+import org.junit.jupiter.api.Test;
+
+// 스프링 컨텍스트(application-context.xml 또는 servlet-context.xml)를 사용하지 않는 
+// 단위 테스트에서는 @ExtendWith, @ContextConfiguration 애너테이션을 사용할 필요가 없음
+public class StreamTest {
+    
+    @Test
+    public void test() {
+        System.out.println("test...");
+    }
+    
+}

@@ -1,0 +1,21 @@
+package com.itwill.spring2.service;
+
+import org.springframework.stereotype.Service;
+
+import com.itwill.spring2.repository.PostRepository;
+
+import lombok.RequiredArgsConstructor;
+
+// application-context.xml에서 <context:component-scan> 설정에서
+// com.itwill.spring2.service 패키지와 그 하위 패키지를 스캔(검색)하고 있음
+@Service //-> 스프링 컨테이너에서 서비스 컴포넌트 객체를 생성하고 관리(필요한 곳에 주입)
+@RequiredArgsConstructor // final로 선언된 필드를 초기화하는 생성자
+public class PostService {
+    
+    // 의존성 주입(DI: Dependency Injection):
+    // (1) 필드에 의한 의존성 주입 - @Autowired 애너테이션 사용
+    // (2) 생성자에 의한 의존성 주입 - 
+    
+    private final PostRepository postRepository;
+    
+}

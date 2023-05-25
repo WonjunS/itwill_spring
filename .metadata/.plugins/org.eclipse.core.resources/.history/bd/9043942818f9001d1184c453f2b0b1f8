@@ -1,0 +1,12 @@
+/**
+ * reply.js
+ * 댓글 등록, 목록 검색, 수정, 삭제
+ * /post/list.jsp에 포함
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const btnToggleReply = document.querySelector('btnToggleReply');
+    btnToggleReply.addEventListener('click', () => {
+        alert('토글 버튼');
+    });
+});
