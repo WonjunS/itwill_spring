@@ -45,8 +45,11 @@ public class ReplyService {
     public int update(long id, ReplyUpdateDto dto) {
         log.info("update(id={}, dto={})", id);
         
-        Reply entity = replyRepository.selectById(id);
-        entity.setReply_text(dto.getReplyText());
+        Reply entity = Reply.builder()
+                .id(id)
+                .reply_text(dto.getReplyText())
+                .build();
+        log.info("entity={}", entity);
         
         return replyRepository.update(entity);
     }

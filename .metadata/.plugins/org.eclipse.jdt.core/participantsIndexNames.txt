@@ -17,6 +17,8 @@ C:\workspaces\lab-web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1894
 \jsp1\src\main\java
 C:\workspaces\lab-web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1779435083.index
 \jsp2\src\main\java
+C:\workspaces\lab-web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2763847287.index
+\ShoppingMall\src\main\java
 C:\workspaces\lab-web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\52041341.index
 \spring2\src\main\java
 C:\workspaces\lab-web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4230671687.index

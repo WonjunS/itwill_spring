@@ -2,11 +2,13 @@
 <section name="Workbench">
 	<section name="wizardPage">
 		<list key="groupId">
+			<item value="com.example"/>
 			<item value="com.itwill"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="spring3"/>
 			<item value="spring2"/>
 			<item value="spring1"/>
 			<item value="jsp1"/>

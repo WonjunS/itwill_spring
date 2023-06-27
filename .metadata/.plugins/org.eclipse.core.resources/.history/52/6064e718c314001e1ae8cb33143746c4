@@ -1,0 +1,25 @@
+/**
+ * 포스트 업데이트 & 삭제
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const btnUpdate = document.querySelector('button#btnUpdate');
+    const btnDelete = document.querySelector('button#btnDelete');
+    
+    const id = document.querySelector('input#id').value;
+    
+    btnUpdate.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const title = document.querySelector('input#title').value;
+        const content = document.querySelector('textarea#content').value;
+        
+        const url = `/post/modify?id=${id}`;
+        const data = { title, content };
+        
+        alert(title + " " + content);
+    });
+    
+    btnDelete.addEventListener('click', (e) => {
+        const url = `/post/delete?id=${id}`;
+    });
+});

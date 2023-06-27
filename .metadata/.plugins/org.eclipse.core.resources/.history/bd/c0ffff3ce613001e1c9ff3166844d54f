@@ -1,0 +1,21 @@
+package com.itwill.spring3.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller("/post")
+public class PostController {
+    
+    @GetMapping("/")
+    public String post() {
+        log.info("post()");
+        
+        // TODO: 포스트 목록 검색
+        
+        return "/Spost/read";
+    }
+    
+}

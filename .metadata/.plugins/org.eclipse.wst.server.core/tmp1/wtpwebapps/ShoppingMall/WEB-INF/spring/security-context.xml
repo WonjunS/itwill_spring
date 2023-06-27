@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<security:global-method-security secured-annotations="enabled" />
+
+	<bean id="customAccessDenied" class="com.itwill.joo.interceptor.CustomAccessDeniedHandler"></bean>
+	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
+	<bean id="customUserDetailsService" class="com.itwill.joo.config.CustomUserDetailsService"></bean>
+
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="customUserDetailsService">
+			<security:password-encoder ref="bcryptPasswordEncoder" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+	<security:http auto-config="true">
+		<security:intercept-url pattern="/user/join" access="permitAll" />
+		<security:intercept-url pattern="/user/login" access="permitAll" />
+		<security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/user/**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+		<security:form-login login-page="/user/login" login-processing-url="/user/login" 
+			username-parameter="email" password-parameter="password" />
+		<security:access-denied-handler ref="customAccessDenied" />
+		<security:logout invalidate-session="true" logout-url="/user/logout" logout-success-url="/" />
+	</security:http>
+
+</beans>

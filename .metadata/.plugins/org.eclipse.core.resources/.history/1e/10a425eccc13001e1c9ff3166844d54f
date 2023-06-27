@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Spring Boot</title>
+</head>
+<body>
+	<header>
+        <h1>Spring Boot Project</h1>
+    </header>
+    
+    <main>
+        <h1 th:text="${now}">[[${now}]]</h1>
+    </main>
+</body>
+</html>
